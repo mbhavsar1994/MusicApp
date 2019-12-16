@@ -13,18 +13,29 @@ class Track extends Component {
         <td style={{ width: "40%" }}>{track.title}</td>
         <td>
           <button
+            name="addtrack"
             className="btn btn-primary btn-md m-1"
             onClick={() => this.props.AddTrack(track)}
           >
             Add to PlayList
           </button>
-          <button className="btn btn-primary btn-md m-1">
+          <button
+            name="redirectToSong"
+            className="btn btn-primary btn-md m-1"
+            onClick={() =>
+              window.open("https://www.discogs.com/" + track.uri, "_blank")
+            }
+          >
             Go to the track
           </button>
         </td>
       </tr>
     );
   }
+
+  handlerTargetSong = Uri => {
+    console.log(Uri);
+  };
 }
 
 export default Track;
