@@ -33,6 +33,17 @@ class NavBar extends Component {
               {playList.map(this.renderPlayList)}
             </select>
           </li>
+
+          <li className="nav-item m-2">
+            <button
+              className="btn btn-outline-primary my-2 my-sm-0"
+              onClick={() => {
+                this.props.onShowAll();
+              }}
+            >
+              Show Add Tracks
+            </button>
+          </li>
           <li className="nav-item m-2">
             <a
               className="nav-link text-info"

@@ -15,7 +15,8 @@ class App extends React.Component {
       errormsg: "",
       statusmsg: "",
       loading: false,
-      isSerchCompleted: false
+      isSerchCompleted: false,
+      TracksForSearch: "yes"
     };
   }
   // state = {};
@@ -29,6 +30,22 @@ class App extends React.Component {
       .catch(err => console.log(err));
   };
 
+  handlerShowAllTrackForPlayList = () => {
+    console.log("show all");
+
+    fetch("http://localhost:8000/tracks/")
+      .then(response => response.json())
+      .then(response =>
+        this.setState({
+          tracks: response.data,
+          loading: false,
+          isSerchCompleted: true,
+          TracksForSearch: "no"
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="App">
@@ -38,6 +55,7 @@ class App extends React.Component {
           onSearch={this.handlerSearchTrack}
           onReset={this.resetTracksHandler}
           seltdPlayList={this.state.selectedPlayList}
+          onShowAll={this.handlerShowAllTrackForPlayList}
           error={this.state.errormsg}
         />
         <span
@@ -54,6 +72,7 @@ class App extends React.Component {
               p => p.title === this.state.selectedPlayList
             )}
             onStatusChange={this.setStatusmsg}
+            TracksForSearch={this.state.TracksForSearch}
           />
         )}
       </div>
@@ -67,7 +86,7 @@ class App extends React.Component {
     this.setState({ statusmsg: msg });
     setTimeout(() => {
       this.setState({ statusmsg: "" });
-    }, 10000);
+    }, 5000);
   };
 
   renderLoader() {
@@ -114,7 +133,8 @@ class App extends React.Component {
         this.setState({
           tracks: response.results,
           loading: false,
-          isSerchCompleted: true
+          isSerchCompleted: true,
+          TracksForSearch: "yes"
         })
       )
       .catch(err => console.log(err));

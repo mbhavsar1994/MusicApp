@@ -11,7 +11,7 @@ class Tracks extends Component {
         <table
           className="table table-striped"
           style={{
-            width: "80%",
+            width: "90%",
             tablelayout: "fixed",
             margin: "auto",
             marginTop: "2%",
@@ -29,7 +29,7 @@ class Tracks extends Component {
             <tr>
               <th></th>
               <th>Master_Id</th>
-              <th>Title</th>
+              <th style={{ width: "20%" }}>Title</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -62,7 +62,8 @@ class Tracks extends Component {
 
   renderTracks = searchedTracks => {
     console.log("inside Method", searchedTracks);
-
+    let { TracksForSearch } = this.props;
+    console.log("abc", TracksForSearch);
     if (searchedTracks !== "undefined") {
       console.log("inside if");
       return searchedTracks.map(track => (
@@ -70,7 +71,10 @@ class Tracks extends Component {
           key={track.id}
           id={track.master_id}
           AddTrack={this.HandlerAddTrackToPlayList}
+          DeleteTrack={this.HandlerDeleteTrackFromPlayList}
+          EditTrack={this.HandlerEditTrackFromPlayList}
           track={track}
+          TracksForSearch={TracksForSearch}
         />
       ));
     } else {
@@ -111,6 +115,8 @@ class Tracks extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  HandlerDeleteTrackFromPlayList = track => {};
 }
 
 export default Tracks;

@@ -44,13 +44,30 @@ app.get("/tracks/:playListID", function(req, res) {
     result => {
       console.log(result.rows);
 
-      var json_users = JSON.stringify(result.rows);
-      console.log(json_users);
+      // var json_users = JSON.stringify(result.rows);
+      // console.log(json_users);
 
-      res.status(200).send(json_users);
+      res.status(200).json({ data: result.rows });
       dao.disconnect();
     }
   );
+});
+
+app.get("/tracks", function(req, res) {
+  //connect db
+  dao.connect();
+
+  //query data from database
+
+  dao.query("SELECT * FROM track ", [], result => {
+    console.log(result.rows);
+
+    // var json_users = JSON.stringify(result.rows);
+    // console.log(json_users);
+
+    res.status(200).json({ data: result.rows });
+    dao.disconnect();
+  });
 });
 
 2;
