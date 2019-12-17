@@ -92,10 +92,7 @@ class Tracks extends Component {
 
   HandlerAddTrackToPlayList = track => {
     let plyId = this.props.selectedPlayList.id;
-    console.log(track.title);
-    console.log(plyId);
-    console.log(track.uri);
-    console.log(track.master_id);
+
     fetch("http://localhost:8000/track", {
       method: "POST",
       headers: {
