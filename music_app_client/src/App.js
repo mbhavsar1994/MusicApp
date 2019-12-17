@@ -80,8 +80,7 @@ class App extends React.Component {
   }
 
   setStatusmsg = msg => {
-    console.log("added");
-    console.log(msg);
+    console.log("Status Message", msg);
     // console.log();
     this.setState({ statusmsg: msg });
     setTimeout(() => {

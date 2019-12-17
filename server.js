@@ -95,17 +95,15 @@ app.delete("/tracks/:trackId", function(req, res) {
 
   //query data from database
   console.log(req.params.id);
-  dao.query(
-    "delete from track where  id = $1",
-    [req.params.trackId],
-    result => {
-      console.log(result);
-      var json_users = JSON.stringify(result.rowCount);
-      console.log(json_users);
-      res.status(200).send(json_users);
-      dao.disconnect();
+  dao.query("delete from track where id = $1", [req.params.trackId], result => {
+    console.log(result);
+
+    if (result.rowCount > 0) {
+      res.status(200).json({ data: "Track Deleted SuccessFully!" });
     }
-  );
+
+    dao.disconnect();
+  });
 });
 
 app.listen(8000, function() {

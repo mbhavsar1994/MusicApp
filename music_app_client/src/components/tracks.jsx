@@ -29,7 +29,7 @@ class Tracks extends Component {
             <tr>
               <th></th>
               <th>Master_Id</th>
-              <th style={{ width: "20%" }}>Title</th>
+              <th style={{ width: "30%" }}>Title</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -116,7 +116,22 @@ class Tracks extends Component {
       .catch(err => console.log(err));
   };
 
-  HandlerDeleteTrackFromPlayList = track => {};
+  HandlerDeleteTrackFromPlayList = track => {
+    let uri = "http://localhost:8000/tracks/" + track.id;
+    console.log(uri);
+    fetch(uri, {
+      method: "Delete",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(response => {
+        this.props.onStatusChange(response.data);
+      })
+      .catch(err => console.log(err));
+  };
 }
 
 export default Tracks;

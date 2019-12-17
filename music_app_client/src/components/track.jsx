@@ -37,7 +37,7 @@ class Track extends Component {
           {TracksForSearch === "no" && (
             <button
               name="deleteSong"
-              className="btn btn-primary btn-sm m-1"
+              className="btn btn-danger btn-sm m-1"
               onClick={() => this.props.DeleteTrack(track)}
             >
               Delete track
