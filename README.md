@@ -8,7 +8,7 @@ User can update and remove tracks from custom playlist in the app.
 
 ## Installation
 
-Use the npm package manager https://github.com/adave711/Music-Application.git clone and install Music APP.  
+Use the npm package manager https://github.com/mbhavsar1994/MusicApp.git clone and install Music APP.  
 
 npm install
 
