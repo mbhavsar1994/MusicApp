@@ -1,6 +1,6 @@
-# Music-Application
+# Suitify
 
-Music Application is developed in Node.js , React.js , Postgres using the Discogs API.  
+Suitify music Application is developed in Node.js , React.js , Postgres using the Discogs API.  
 Application provides Search fuctionality over thousand of track from discogs server provided by playlist type  
 User can create own custom playlist in web app  
 User can also add track in custom playlist in the app.  
