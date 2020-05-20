@@ -1,6 +1,6 @@
 # Suitify
 
-![Suitify](https://drive.google.com/open?id=1Qi2ViNl75r_yBeZ8Rto2pX5QvsphinCy)
+![Suitify](https://drive.google.com/file/d/1Qi2ViNl75r_yBeZ8Rto2pX5QvsphinCy/view)
 
 Suitify music Application is developed in Node.js , React.js , Postgres using the Discogs API.  
 Application provides Search fuctionality over thousand of track from discogs server provided by playlist type  
