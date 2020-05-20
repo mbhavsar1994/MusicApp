@@ -1,6 +1,5 @@
 # Suitify
 
-![Suitify](https://imgur.com/moo374s)
 
 Suitify music Application is developed in Node.js , React.js , Postgres using the Discogs API.  
 Application provides Search fuctionality over thousand of track from discogs server provided by playlist type  
